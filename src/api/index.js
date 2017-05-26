@@ -46,11 +46,9 @@ const DB_DATA = {
   ]
 }
 
-function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-export function fetchStudents(institutionId) {
+export const fetchStudents = institutionId => {
   return delay(500).then(() => {
     if (!institutionId) return DB_DATA.students
     return DB_DATA.students.filter(i => i.institution._id === institutionId)
