@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux'
+import students from './reducers/students'
 
-const appReducer = combineReducers({})
+const appReducer = combineReducers({
+  students
+})
 
 const reducer = (state, action) => {
   if(action.type === 'LOGOUT') {
