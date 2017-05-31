@@ -26,7 +26,7 @@ class Student {
     this.user = new User()
     this.schoolEmail = faker.internet.email()
     this.verified = randomize([true, false])
-    this.institution = randomize([{_id: 1}, {_id: 2}])
+    this.institution = randomize([{_id: 1, name: 'UCI'}, {_id: 2, name: 'Pepperdine'}])
     this.ambassador = randomize([true, false])
     this.admin = false
     this.major = [randomize([{_id: 1}, {_id: 2}, {_id: 3}, {_id: 4}])]
@@ -48,7 +48,7 @@ const DB_DATA = {
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-export const fetchStudents = institutionId => {
+export const fetchStudents = (institutionId) => {
   return delay(500).then(() => {
     if (!institutionId) return DB_DATA.students
     return DB_DATA.students.filter(i => i.institution._id === institutionId)
